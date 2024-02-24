@@ -116,7 +116,20 @@
       document.getElementById('servicesList').textContent = servicesListText;
     });
     
-  
+  function displayQuotedServices() {
+    const services = localStorage.getItem('services') ? JSON.parse(localStorage.getItem('services')) : [];
+    const servicesList = document.getElementById('servicesList'); // Assurez-vous d'avoir un élément avec cet ID dans cont.html
+    services.forEach(service => {
+        const listItem = document.createElement('li');
+        listItem.textContent = service;
+        servicesList.appendChild(listItem);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    displayQuotedServices();
+});
+
     
     
   </script>
