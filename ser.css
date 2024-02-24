@@ -1,0 +1,553 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+.navbar {
+  background: #A6A6A6;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+#navbar__logo img {
+  height: 75px; /* ou toute autre taille appropriée */
+  width: auto;
+  vertical-align: middle;
+}
+
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  z-index: 1;
+  width: 100%;
+  max-width: 1300px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+#navbar__logo {
+  background-color: #ff8177;
+  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.fa-gem {
+  margin-right: 0.5rem;
+}
+
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+}
+
+.navbar__item {
+  height: 80px;
+}
+
+.navbar__links {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+}
+
+.navbar__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+/* Style existant du bouton (pour tous les écrans) */
+.button {
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 10px 20px;
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #f77062;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Style pour les petits écrans (par exemple, téléphones) */
+@media screen and (max-width: 480px) {
+  .button {
+      width: auto; /* ou une largeur fixe qui convient mieux */
+      height: auto; /* ajuster la hauteur si nécessaire */
+      padding: 5px 10px; /* réduire le padding pour les petits écrans */
+      font-size: 0.8rem; /* réduire la taille de la police pour les petits écrans */
+  }
+}
+/* Style existant pour le bouton (pour tous les écrans) */
+#addToQuote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 10px 20px;
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #f77062;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Style spécifique pour les petits écrans (téléphones) */
+@media screen and (max-width: 480px) {
+  #addToQuote {
+      width: auto; /* ou une largeur fixe appropriée */
+      height: auto;
+      padding: 5px 10px;
+      font-size: 0.8rem;
+      margin: 0 auto; /* Centrage horizontal */
+  }
+}
+
+
+.button:hover {
+  background: #4837ff;
+  transition: all 0.3s ease;
+}
+
+.navbar__links:hover {
+  color: #f77062;
+  transition: all 0.3s ease;
+}
+
+
+@media screen and (max-width: 960px) {
+  .navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0;
+  }
+
+  .navbar__menu {
+    display: grid;
+    grid-template-columns: auto;
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    top: -1000px;
+    opacity: 1;
+    transition: all 0.5s ease;
+    height: 50vh;
+    z-index: -1;
+  }
+
+  .navbar__menu.active {
+    background: #131313;
+    top: 100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 99;
+    height: 50vh;
+    font-size: 1.6rem;
+  }
+
+  #navbar__logo {
+    padding-left: 25px;
+  }
+
+  .navbar__toggle .bar {
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background: #fff;
+  }
+
+  .navbar__item {
+    width: 100%;
+  }
+
+  .navbar__links {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+  }
+
+  .navbar__btn {
+    padding-bottom: 2rem;
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80px;
+    margin: 0;
+  }
+
+  #mobile-menu {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    transform: translate(5%, 20%);
+  }
+
+  .navbar__toggle .bar {
+    display: block;
+    cursor: pointer;
+  }
+
+  #mobile-menu.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  #mobile-menu.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  #mobile-menu.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+/* Utilisez vos styles CSS existants et ajoutez les styles pour la page Photobooth */
+
+.photobooth-container {
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: linear-gradient(to right, #A6A6A6, #FFFFFF);
+}
+
+.photobooth-title {
+  color: /* utilisez la couleur de votre choix pour le titre */;
+  margin-bottom: 20px;
+}
+
+.photobooth-image img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.photobooth-description {
+  /* Styles pour la description */
+}
+
+/* Styles pour les boutons */
+.button {
+  /* Styles de vos boutons */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .photobooth-container {
+      flex-direction: column;
+  }
+
+  .photobooth-image, .photobooth-description {
+      width: 100%;
+  }
+
+  /* Autres ajustements responsifs */
+}
+
+.button-back-to-services {
+  position: fixed; /* Utilisation de 'fixed' pour le positionner relativement à la fenêtre du navigateur */
+  bottom: 20px; /* Positionné à 20px du bas de la fenêtre */
+  left: 20px; /* Positionné à 20px de la gauche de la fenêtre */
+  padding: 10px 20px;
+  background-color: #f77062; /* Couleur du bouton, ajustez selon vos préférences */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.button-back-to-services:hover {
+  background-color: #4837ff; /* Couleur au survol */
+}
+
+
+/* Footer CSS */
+.footer__container {
+  background-image: linear-gradient(to right, #A6A6A6, #FFFFFF);
+  padding: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer__logo {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+#footer__logo img {
+  height: 90px; /* ou toute autre taille appropriée */
+  width: auto;
+  vertical-align: middle;
+}
+
+.footer__links {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer__link--wrapper {
+  display: flex;
+}
+
+.footer__link--items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 16px;
+  text-align: left;
+  width: 160px;
+  box-sizing: border-box;
+}
+
+.footer__link--items h2 {
+  margin-bottom: 16px;
+}
+
+.footer__link--items > h2 {
+  color: #fff;
+}
+
+.footer__link--items a {
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+
+.footer__link--items a:hover {
+  color: #e9e9e9;
+  transition: 0.3s ease-out;
+}
+
+/* Social Icons */
+.social__icon--link {
+  color: #fff;
+  font-size: 24px;
+}
+
+.social__media {
+  max-width: 1000px;
+  width: 100%;
+}
+
+.social__media--wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1000px;
+  margin: 40px auto 0 auto;
+}
+
+.social__icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 240px;
+}
+
+.social__logo {
+  color: #fff;
+  justify-self: start;
+  margin-left: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.website__rights {
+  color: #fff;
+}
+
+.photobooth-description {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.photobooth-description h2 {
+  color: #4837ff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.photobooth-description ul {
+  list-style: none;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.photobooth-description li {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+
+/* Ajoutez ces styles dans votre fichier CSS */
+
+.photo-carousel {
+  overflow-x: auto; /* Permet le défilement horizontal */
+  white-space: nowrap; /* Affiche les images en ligne */
+  padding: 10px;
+}
+
+/* Styles par défaut pour mobiles et petites résolutions */
+.photo-carousel .carousel-inner {
+  display: inline-flex;
+  align-items: center;
+}
+
+.photo-carousel img {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  display: inline-block;
+  margin-right: 10px; /* Espace plus petit pour les petits écrans */
+}
+
+/* Styles pour les écrans d'ordinateur */
+@media screen and (min-width: 1024px) { /* 1024px est un seuil commun pour les écrans d'ordinateur */
+  .photo-carousel img {
+    margin-right: 2cm; /* 5 cm d'espace entre chaque image */
+  }
+
+  /* Enlever la marge à droite pour la dernière image */
+  .photo-carousel .carousel-inner > a:last-child img {
+    margin-right: 0;
+  }
+}
+
+
+.modal {
+  display: none; /* Modal caché par défaut */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Permettre le défilement si nécessaire */
+  background-color: rgb(0,0,0); /* Fond noir */
+  background-color: rgba(0,0,0,0.9); /* Noir avec opacité */
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Les styles existants pour .photo-carousel et .photo-carousel img */
+/* ... */
+
+
+
+@media screen and (max-width: 820px) {
+  .footer__links {
+    padding-top: 2rem;
+  }
+
+  #footer__logo {
+    margin-bottom: 2rem;
+  }
+
+  .website__rights {
+    margin-bottom: 2rem;
+  }
+
+  .footer__link--wrapper {
+    flex-direction: column;
+  }
+
+  .social__media--wrap {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer__link--items {
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+  }
+}

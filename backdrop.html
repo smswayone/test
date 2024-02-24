@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choix de Backdrops - Photobooth</title>
+    <link rel="stylesheet" href="backdrop.css"> <!-- Assurez-vous que le chemin d'accès est correct -->
+    <div id="notification" style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: lightblue; padding: 10px; border-radius: 5px;"></div>
+
+</head>
+<body>
+
+    <!-- Navbar (si nécessaire) -->
+    <!-- Navbar Section -->
+  <nav class="navbar">
+    <div class="navbar__container">
+      <a href="/index.html" id="navbar__logo">
+        <img src="images/logo.PNG" alt="Logo PixxParty" />
+      </a>
+      <div class="navbar__toggle" id="mobile-menu">
+        <span class="bar"></span> <span class="bar"></span> <span class="bar"></span>
+      </div>
+      <ul class="navbar__menu">
+        <li class="navbar__item">
+          <a href="/index.html" class="navbar__links">Home</a>
+        </li>
+        <li class="navbar__item">
+          <a href="/pro.html" class="navbar__links">À propos</a>
+        </li>
+        <li class="navbar__item">
+            <a href="/backdrop.html" class="navbar__links">Backdrop</a>
+          </li>
+        <li class="navbar__item">
+          <a href="/serv.html" class="navbar__links">Services</a>
+        </li>
+        <li class="navbar__btn"><a href="/cont.html" class="button">Devis</a></li>
+      </ul>
+    </div>
+  </nav>
+
+    <!-- ... -->
+    <h1>Choix de Backdrops - Photobooth</h1>
+    <p>Choisissez votre backdrop préféré pour votre séance de photobooth.</p>
+
+<!-- La boîte de dialogue modale pour la question -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Voulez-vous voir le service audio?</h2>
+        <button onclick="showAudioService('Oui')">Oui</button>
+        <button onclick="showAudioService('Non')">Non</button>
+    </div>
+</div>
+
+
+
+    <div class="services__container">
+        <!-- Exemple de backdrops -->
+        <div class="services__card" id="brushed_white_to_black" onclick="addToQuote('brushed white to black')">
+            <img src="backdrop/brushed_white_to_bacl.jpg" alt="brushed white to black">
+            <div class="services__card-text">Brushed White To Black Blackdrop</div>
+        </div>
+        <div class="services__card" id="Frosted_Wonderland" onclick="addToQuote('Frosted Wonderland')">
+            <img src="backdrop/frosted_wonderland.jpg" alt="Frosted Wonderland Backdrop">
+            <div class="services__card-text">Frosted Wonderland Backdrop</div>
+        </div>
+        <div class="services__card" id="gold_balloons" onclick="addToQuote('Backdrop 2')">
+            <img src="backdrop/gold_balloons.jpg" alt="Backdrop 2">
+            <div class="services__card-text">Gold Balloons Backdrop</div>
+        </div>
+
+<div class="services__card" id="golden_congratulation" onclick="addToQuote('Golden Congratulation')">
+    <img src="backdrop/golden_congrulation.jpg" alt="Golden Congratulation Backdrop">
+    <div class="services__card-text">Golden Congratulation Backdrop</div>
+</div>
+
+<div class="services__card" id="golden_new_york" onclick="addToQuote('Golden New York')">
+    <img src="backdrop/golden_new_york.jpg" alt="Golden New York Backdrop">
+    <div class="services__card-text">Golden New York Backdrop</div>
+</div>
+
+<div class="services__card" id="gray_marble" onclick="addToQuote('Gray Marble')">
+    <img src="backdrop/gray_marble.jpg" alt="Gray Marble Backdrop">
+    <div class="services__card-text">Gray Marble Backdrop</div>
+</div>
+
+<div class="services__card" id="grays_matter" onclick="addToQuote('Grays Matter')">
+    <img src="backdrop/grays_matter.jpg" alt="Grays Matter Backdrop">
+    <div class="services__card-text">Grays Matter Backdrop</div>
+</div>
+
+<div class="services__card" id="green_camo" onclick="addToQuote('Green Camo')">
+    <img src="backdrop/green_camo.jpg" alt="Green Camo Backdrop">
+    <div class="services__card-text">Green Camo Backdrop</div>
+</div>
+
+<div class="services__card" id="hedge" onclick="addToQuote('Hedge')">
+    <img src="backdrop/hedge.jpg" alt="Hedge Backdrop">
+    <div class="services__card-text">Hedge Backdrop</div>
+</div>
+
+<div class="services__card" id="ho_some_snow" onclick="addToQuote('Ho Some Snow')">
+    <img src="backdrop/ho_some_snow.jpg" alt="Ho Some Snow Backdrop">
+    <div class="services__card-text">Ho Some Snow Backdrop</div>
+</div>
+
+<div class="services__card" id="luxury_marble_swirl" onclick="addToQuote('Luxury Marble Swirl')">
+    <img src="backdrop/luxury_marble_swirl.jpg" alt="Luxury Marble Swirl Backdrop">
+    <div class="services__card-text">Luxury Marble Swirl Backdrop</div>
+</div>
+
+<div class="services__card" id="luxury_rose_gold_glitter" onclick="addToQuote('Luxury Rose Gold Glitter')">
+    <img src="backdrop/luxury_rose_gold_glitter.jpg" alt="Luxury Rose Gold Glitter Backdrop">
+    <div class="services__card-text">Luxury Rose Gold Glitter Backdrop</div>
+</div>
+
+<div class="services__card" id="party_balloons_streamers" onclick="addToQuote('Party Balloons Streamers')">
+    <img src="backdrop/party_balloons_streamers.jpg" alt="Party Balloons Streamers Backdrop">
+    <div class="services__card-text">Party Balloons Streamers Backdrop</div>
+</div>
+
+<div class="services__card" id="pink_marble" onclick="addToQuote('Pink Marble')">
+    <img src="backdrop/pink_marble.jpg" alt="Pink Marble Backdrop">
+    <div class="services__card-text">Pink Marble Backdrop</div>
+</div>
+
+<div class="services__card" id="rose_gold_sequin" onclick="addToQuote('Rose Gold Sequin')">
+    <img src="backdrop/rose_gold_sequin.jpg" alt="Rose Gold Sequin Backdrop">
+    <div class="services__card-text">Rose Gold Sequin Backdrop</div>
+</div>
+
+<div class="services__card" id="silver_sparkle" onclick="addToQuote('Silver Sparkle')">
+    <img src="backdrop/silver_sparkle.jpg" alt="Silver Sparkle Backdrop">
+    <div class="services__card-text">Silver Sparkle Backdrop</div>
+</div>
+
+<div class="services__card" id="sleigh_bell_ring" onclick="addToQuote('Sleigh Bell Ring')">
+    <img src="backdrop/sleigh_bell_ring.jpg" alt="Sleigh Bell Ring Backdrop">
+    <div class="services__card-text">Sleigh Bell Ring Backdrop</div>
+</div>
+
+<div class="services__card" id="the_duchess" onclick="addToQuote('The Duchess')">
+    <img src="backdrop/the_duchess.jpg" alt="The Duchess Backdrop">
+    <div class="services__card-text">The Duchess Backdrop</div>
+</div>
+
+<div class="services__card" id="wedding_gold" onclick="addToQuote('Wedding Gold')">
+    <img src="backdrop/wedding_gold.jpg" alt="Wedding Gold Backdrop">
+    <div class="services__card-text">Wedding Gold Backdrop</div>
+</div>
+
+<div class="services__card" id="white_marble" onclick="addToQuote('White Marble')">
+    <img src="backdrop/white_marble.jpg" alt="White Marble Backdrop">
+    <div class="services__card-text">White Marble Backdrop</div>
+</div>
+
+<div class="services__card" id="white_roses_orchids" onclick="addToQuote('White Roses Orchids')">
+    <img src="backdrop/white_roses_orchids.jpg" alt="White Roses Orchids Backdrop">
+    <div class="services__card-text">White Roses Orchids Backdrop</div>
+</div>
+
+
+
+        <!-- Ajoutez autant de backdrops que nécessaire -->
+    </div>
+    
+            <!-- Ajoutez autant de backdrops que nécessaire -->
+        </div>
+    </div>
+
+    <!-- Footer (si nécessaire) -->
+    <!-- ... -->
+
+    <script src="app.js"></script> <!-- Script pour gérer l'ajout au devis -->
+</body>
+</html>

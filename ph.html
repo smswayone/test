@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service Photobooth - PixxParty</title>
+    <link rel="stylesheet" href="ser.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet" />
+    <div id="notification" style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: lightblue; padding: 10px; border-radius: 5px;"></div>
+
+</head>
+<body>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="/index.html" id="navbar__logo">
+                <img src="images/logo.PNG" alt="Logo PixxParty" />
+            </a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span> <span class="bar"></span> <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="/index.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/pro.html" class="navbar__links">À propos</a>
+                </li>
+                <li class="navbar__item">
+                  <a href="/backdrop.html" class="navbar__links">Backdrop</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/serv.html" class="navbar__links">Services</a>
+                </li>
+                <li class="navbar__btn"><a href="/cont.html" class="button">Devis</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <button class="button-back-to-services" onclick="history.back()">Retour aux Services</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+
+    <div class="photobooth-container">
+        
+        <div class="photobooth-image">
+            <img src="images/ph.jpg" alt="Photobooth">
+        </div>
+        <div class="photobooth-description">
+          <div class="photobooth-description">
+            <h2></h2>
+             <h2>Photobooth Élégant et Interactif</h2>
+              <ul>
+              <li>Séances illimitées</li>
+              <li>Personnalisation avec logos et textes</li>
+              <li>Photos GLAM 6"x4" de qualité premium</li>
+              <li>Partage instantané par SMS ou email</li>
+              <li>Choix entre photos et GIFs animés</li>
+              <li>Galerie en ligne sécurisée</li>
+              <li>Toile de fond premium blanche</li>
+              <li>Service continu toute la soirée</li>
+              <li>Copies numériques de toutes les photos</li>
+            </ul>
+        </div>
+        
+        <button class="button" id="addToQuote">Ajouter au devis</button>
+        <script>
+          document.getElementById("addToQuote").addEventListener("click", function() {
+              // Redirige vers la page souhaitée lorsque le bouton est cliqué
+              window.location.href = "backdrop.html";
+          });
+          </script>
+        </div>
+    </div>
+
+    <div class="photo-carousel">
+      <div class="carousel-inner">
+        <a href="images/pic2.jpg" data-lightbox="roadtrip" data-title="Photo 1">
+          <img src="images/pic2.jpg" alt="Photo 1" class="carousel-image">
+        </a>
+        <a href="images/ph.jpg" data-lightbox="roadtrip" data-title="Photo 2">
+          <img src="images/ph.jpg" alt="Photo 2" class="carousel-image">
+        </a>
+        <a href="images/ph.jpg" data-lightbox="roadtrip" data-title="Photo 2">
+          <img src="images/ph.jpg" alt="Photo 2" class="carousel-image">
+        </a>
+        <a href="images/ph.jpg" data-lightbox="roadtrip" data-title="Photo 2">
+          <img src="images/ph.jpg" alt="Photo 2" class="carousel-image">
+        </a>
+        <a href="images/ph.jpg" data-lightbox="roadtrip" data-title="Photo 2">
+          <img src="images/ph.jpg" alt="Photo 2" class="carousel-image">
+        </a>
+        <a href="images/ph.jpg" data-lightbox="roadtrip" data-title="Photo 2">
+          <img src="images/ph.jpg" alt="Photo 2" class="carousel-image">
+        </a>
+        <!-- Ajoutez plus d'images ici -->
+      </div>
+    </div>
+    
+    
+
+    <!-- Footer Section -->
+    <div class="footer__container">
+        <div class="footer__link--wrapper">
+            <div class="footer__link--items">
+                <!-- Liens du footer ici -->
+            </div>
+        </div>
+        <section class="social__media">
+            <div class="social__media--wrap">
+                <div class="footer__logo">
+                    <a href="/index.html" id="footer__logo">
+                        <img src="images/logo.PNG" alt="Logo PixxParty" />
+                    </a>
+                </div>
+                <p class="website__rights">© PixxParty 2023. All rights reserved</p>
+                <div class="social__icons">
+                    <a class="social__icon--link" href="https://www.tiktok.com/@pixxparty?_t=8haIrDbFbb3&_r=1" target="_blank" aria-label="tiktok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a class="social__icon--link" href="https://www.instagram.com/pixx.party/" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="social__icon--link" href="https://www.facebook.com/profile.php?id=100087178189792" target="_blank" aria-label="facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
