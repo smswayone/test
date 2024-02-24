@@ -70,6 +70,8 @@
 <div id="selectedServices">
   <h3>Services sélectionnés :</h3>
   <div id="servicesList"></div>
+  <div id="selectedBackdrop"></div>
+
 </div>
 
 <!-- ... -->
@@ -142,6 +144,14 @@ document.addEventListener('DOMContentLoaded', function() {
     displaySelectedBackdrop();
 });
 
+    document.addEventListener('DOMContentLoaded', function() {
+    const selectedBackdrop = localStorage.getItem('backdrop');
+    if (selectedBackdrop) {
+        document.getElementById('selectedBackdrop').textContent = "Backdrop sélectionné: " + selectedBackdrop;
+    } else {
+        document.getElementById('selectedBackdrop').textContent = "Aucun backdrop sélectionné.";
+    }
+});
     
     
   </script>
