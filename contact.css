@@ -260,26 +260,6 @@ body {
   background: url('chemin_vers_image_fleche.png') no-repeat right #191919;
   background-size: 20px 20px;
 }
-
-.contact-form form .btn {
-  display: inline-block;
-  background: #f9004d;
-  font-size: 1rem;
-  text-transform: uppercase;
-  font-weight: 600;
-  border: 2px solid transparent;
-  border-radius: 10px;
-  width: 220px;
-  cursor: pointer;
-  color: #fff;
-}
-
-.contact-form form .btn:hover {
-  border: 2px solid #f9004d;
-  background: transparent;
-  transform: scale(1.1);
-}
-
 /* Footer Section */
 
 .footer__container {
