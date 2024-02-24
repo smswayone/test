@@ -67,7 +67,7 @@
       <!-- ... -->
 
 <!-- Élément pour afficher les services sélectionnés -->
-<div id="selectedServices">
+  <ul id="servicesList"></ul>
   <div id="servicesList"></div>
   <div id="selectedBackdrop"></div>
 
@@ -102,57 +102,30 @@
     </section>
   </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var services = localStorage.getItem('services') ? JSON.parse(localStorage.getItem('services')) : [];
-      var servicesListText = services.map(service => {
-        if (typeof service === 'string') {
-          return service; // Si c'est une chaîne, retourner telle quelle
-        } else if (typeof service === 'object' && service.service) {
-          return service.service; // Si c'est un objet, retourner la propriété 'service'
-        }
-        return 'Inconnu'; // Pour tout autre type non géré
-      }).join(', ');
-    
-      document.getElementById('servicesList').textContent = servicesListText;
-    });
-    
-  function displayQuotedServices() {
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Fusionner la logique de récupération et d'affichage des services
     const services = localStorage.getItem('services') ? JSON.parse(localStorage.getItem('services')) : [];
-    const servicesList = document.getElementById('servicesList'); // Assurez-vous d'avoir un élément avec cet ID dans cont.html
+    const servicesList = document.getElementById('servicesList');
+    servicesList.innerHTML = ''; // Nettoie la liste avant d'ajouter des éléments
     services.forEach(service => {
         const listItem = document.createElement('li');
-        listItem.textContent = service;
+        // Gérer le cas où service est une chaîne ou un objet avec une propriété 'service'
+        const serviceText = typeof service === 'object' && service.service ? service.service : service;
+        listItem.textContent = serviceText;
         servicesList.appendChild(listItem);
     });
-}
 
-document.addEventListener('DOMContentLoaded', function() {
-    displayQuotedServices();
-});
-
-    function displaySelectedBackdrop() {
-    const backdropName = localStorage.getItem('backdrop');
-    if (backdropName) {
-        const backdropElement = document.getElementById('selectedBackdrop'); // Assurez-vous d'avoir un élément avec cet ID dans cont.html
-        backdropElement.textContent = "Backdrop sélectionné : " + backdropName;
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    displaySelectedBackdrop();
-});
-
-    document.addEventListener('DOMContentLoaded', function() {
+    // Gérer l'affichage du backdrop sélectionné
     const selectedBackdrop = localStorage.getItem('backdrop');
+    const backdropElement = document.getElementById('selectedBackdrop');
     if (selectedBackdrop) {
-        document.getElementById('selectedBackdrop').textContent = "Backdrop sélectionné: " + selectedBackdrop;
+        backdropElement.textContent = "Backdrop sélectionné: " + selectedBackdrop;
     } else {
-        document.getElementById('selectedBackdrop').textContent = "Aucun backdrop sélectionné.";
+        backdropElement.textContent = "Aucun backdrop sélectionné.";
     }
 });
-    
-    
-  </script>
+</script>
+
 </body>
 </html>
