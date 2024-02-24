@@ -68,33 +68,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 // Fonction pour ajouter un backdrop au devis, remplaçant tout choix précédent
-function selectBackdrop(backdropName) {
-    // Récupère le service 'backdrop' actuel, s'il existe
-    let currentBackdrop = localStorage.getItem('backdrop');
-
-    // Vérifie si un backdrop est déjà sélectionné
-    if (currentBackdrop) {
-        // Si le même backdrop est sélectionné, affiche une notification sans changer le choix
-        if (currentBackdrop === backdropName) {
-            displayNotification(backdropName + " est déjà sélectionné pour le devis.");
-        } else {
-            // Remplace le backdrop existant par le nouveau choix
-            localStorage.setItem('backdrop', backdropName);
-            displayNotification("Votre choix de backdrop a été changé pour " + backdropName + ". Un seul backdrop peut être sélectionné.");
+    function selectBackdrop(backdropName) {
+        let currentBackdrop = localStorage.getItem('backdrop');
+        if (currentBackdrop && currentBackdrop !== backdropName) {
+            displayNotification(`Votre choix de backdrop a été changé pour ${backdropName}. Un seul backdrop peut être sélectionné.`);
+        } else if (!currentBackdrop) {
+            displayNotification(`${backdropName} a été ajouté à votre devis.`);
         }
-    } else {
-        // Aucun backdrop n'est encore sélectionné, ajoute le choix actuel
         localStorage.setItem('backdrop', backdropName);
-        displayNotification(backdropName + " a été ajouté à votre devis.");
     }
-}
 
-// Exemple d'utilisation dans un gestionnaire d'événements pour un backdrop spécifique
-document.querySelectorAll('.services__card').forEach(card => {
-    card.addEventListener('click', function() {
-        const backdropName = this.getAttribute('data-backdrop-name'); // Assurez-vous que chaque .services__card a un attribut data-backdrop-name
-        selectBackdrop(backdropName);
+    document.querySelectorAll('.services__card').forEach(card => {
+        card.addEventListener('click', function() {
+            const backdropName = this.getAttribute('data-backdrop-name');
+            selectBackdrop(backdropName);
+        });
     });
+
 });
   
   function updateServicesList() {
