@@ -36,6 +36,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 5000); // La notification disparaît après 5 secondes
   }
 
+  const addToQuoteAudio = document.getElementById('addToQuoteAudio');
+if (addToQuoteAudio) {
+    addToQuoteAudio.addEventListener('click', function() {
+      const serviceName = "Livre d'or audio";
+      let services = localStorage.getItem('services') ? JSON.parse(localStorage.getItem('services')) : [];
+
+      if (!services.includes(serviceName)) {
+        services.push(serviceName);
+        localStorage.setItem('services', JSON.stringify(services));
+        displayNotification(serviceName + " ajouté au devis!");
+      } else {
+        displayNotification(serviceName + " est déjà dans le devis!");
+      }
+    });
+}
+
+
   // Assurez-vous que l'ID 'addToQuoteAudio' correspond à votre bouton dans le HTML
 function addToQuote(serviceName) {
   let services = localStorage.getItem('services') ? JSON.parse(localStorage.getItem('services')) : [];
