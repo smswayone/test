@@ -118,19 +118,6 @@
     </div>
     <script src="app.js"></script>
 
-    <script>
-      document.getElementById('addToQuoteAudioGuestBook').addEventListener('click', function() {
-        var services = localStorage.getItem('services') ? JSON.parse(localStorage.getItem('services')) : [];
-        var serviceToAdd = "Livre d'or audio";
-      
-        if (!services.includes(serviceToAdd)) {
-          services.push(serviceToAdd);
-          localStorage.setItem('services', JSON.stringify(services));
-          alert("Service Livre d'or audio ajouté au devis!");
-        } else {
-          alert("Service Livre d'or audio est déjà dans le devis!");
-        }
-      });</script>
 
   </body>
 </html>
