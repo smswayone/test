@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const addToQuotePhotobooth = document.getElementById('addToQuotePhotobooth');
   if (addToQuotePhotobooth) {
     addToQuotePhotobooth.addEventListener('click', function() {
-      addToQuote("Photobooth Élégant et Interactif", "backdrop.html");
+      addToQuote("Photobooth", "backdrop.html");
     });
   }
 
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const addToQuoteAudio = document.getElementById('addToQuoteAudio');
   if (addToQuoteAudio) {
     addToQuoteAudio.addEventListener('click', function() {
-      addToQuote("Livre d'or audio", "votreURLDeRedirection.html"); // Remplacez "votreURLDeRedirection.html" par l'URL réelle
+      addToQuote("Livre d'or audio", ""); // Remplacez "votreURLDeRedirection.html" par l'URL réelle
     });
   }
 
