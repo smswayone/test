@@ -130,6 +130,18 @@ document.addEventListener('DOMContentLoaded', function() {
     displayQuotedServices();
 });
 
+    function displaySelectedBackdrop() {
+    const backdropName = localStorage.getItem('backdrop');
+    if (backdropName) {
+        const backdropElement = document.getElementById('selectedBackdrop'); // Assurez-vous d'avoir un élément avec cet ID dans cont.html
+        backdropElement.textContent = "Backdrop sélectionné : " + backdropName;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    displaySelectedBackdrop();
+});
+
     
     
   </script>
