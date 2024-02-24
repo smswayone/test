@@ -36,33 +36,42 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 5000); // La notification disparaît après 5 secondes
   }
 
-  const addToQuoteAudio = document.getElementById('addToQuoteAudio');
-if (addToQuoteAudio) {
-    addToQuoteAudio.addEventListener('click', function() {
-      const serviceName = "Livre d'or audio";
-      let services = localStorage.getItem('services') ? JSON.parse(localStorage.getItem('services')) : [];
+  // Fonction générique pour ajouter un service au devis
+  function addToQuote(serviceName, redirectUrl) {
+    let services = localStorage.getItem('services') ? JSON.parse(localStorage.getItem('services')) : [];
+    if (!services.includes(serviceName)) {
+      services.push(serviceName);
+      localStorage.setItem('services', JSON.stringify(services));
+      displayNotification(serviceName + " ajouté au devis!");
+      setTimeout(() => {
+        window.location.href = redirectUrl; // Redirection après l'affichage de la notification
+      }, 2000); // Attend 2 secondes avant de rediriger
+    } else {
+      displayNotification(serviceName + " est déjà dans le devis!");
+    }
+  }
 
-      if (!services.includes(serviceName)) {
-        services.push(serviceName);
-        localStorage.setItem('services', JSON.stringify(services));
-        displayNotification(serviceName + " ajouté au devis!");
-      } else {
-        displayNotification(serviceName + " est déjà dans le devis!");
-      }
+  // Attachez ici les gestionnaires d'événements pour les boutons spécifiques
+  // Exemple pour Photobooth
+  const addToQuotePhotobooth = document.getElementById('addToQuotePhotobooth');
+  if (addToQuotePhotobooth) {
+    addToQuotePhotobooth.addEventListener('click', function() {
+      addToQuote("Photobooth Élégant et Interactif", "backdrop.html");
     });
-}
+  }
 
+  // Gestionnaire d'événements pour "Livre d'or audio"
+  const addToQuoteAudio = document.getElementById('addToQuoteAudio');
+  if (addToQuoteAudio) {
+    addToQuoteAudio.addEventListener('click', function() {
+      addToQuote("Livre d'or audio", "votreURLDeRedirection.html"); // Remplacez "votreURLDeRedirection.html" par l'URL réelle
+    });
+  }
 
-  // Assurez-vous que l'ID 'addToQuoteAudio' correspond à votre bouton dans le HTML
-
-
-
-  // Supposons que vous avez une fonction pour mettre à jour et afficher la liste des services sur la page
   function updateServicesList() {
     // Logique pour mettre à jour l'affichage de la liste des services
   }
 
-  // Supposons également que vous avez une logique pour supprimer un service du devis
   function removeServiceFromQuote(index) {
     // Logique pour supprimer un service de la liste et mettre à jour le localStorage
   }
